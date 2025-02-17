@@ -11,14 +11,21 @@ const OpcionNueva = (props) => {
     const [inputResult, setInputResult] = useState("")
 
     return (
-        <View>
+        <View style={{flex: 1,
+    backgroundColor: '#ff8929',
+    alignItems: 'center',
+            justifyContent: 'center'
+        }}>
         <Card style={{
-            alignItems: 'flex-start',
+            alignItems:'center',
             justifyContent: 'flex-start',
             flex: 1,
             backgroundColor: '#404252',
             flexDirection: 'column',
-            margin: 30
+                margin: 50,
+                flexWrap: 'wrap',
+                width: 340,
+            
         }}>
             <Card.Content><Card.Title title={"OPCION "+props.id} titleStyle={{ color: '#ff8929' }} /></Card.Content>
             <Card.Content>
@@ -27,17 +34,16 @@ const OpcionNueva = (props) => {
                         {value: 'Cons', label: 'Cons', icon: 'magnify-minus', checkedColor: "#ff8929", uncheckedColor: "#ff8929" }
                         
                     ]}/>
-                    <TextInput style={prosCons == 'Pros' ? { display: "flex", backgroundColor: '#50d977' } : { display: "none" }} value={inputPros} onChangeText={(e) => { setInputPros(e) }}></TextInput>
+                    <TextInput multiline={true} style={prosCons == 'Pros' ? { display: "flex", backgroundColor: '#50d977', } : { display: "none" }}
+                        value={inputPros} onChangeText={(e) => { setInputPros(e) }}></TextInput>
                 <Divider></Divider>
-                    <TextInput style={prosCons == 'Cons' ? { display: "flex", backgroundColor: '#d95050' } : { display: "none" }} value={inputCons} onChangeText={(e) => { setInputCons(e) }}></TextInput>
-            </Card.Content>
-            <Card.Content>
+                    <TextInput multiline={true} style={prosCons == 'Cons' ? { display: "flex", backgroundColor: '#d95050', } : { display: "none" }}
+                        value={inputCons} onChangeText={(e) => { setInputCons(e) }}></TextInput>
                 <Button textColor="#404252" buttonColor="#ff8929" icon={'dots-horizontal'} onPress={()=>{setResultados(!resultados)
                     
                 }}>Posibles resultados</Button>
-                    <TextInput style={resultados ? { display: 'flex' } : { display: "none", color: '#fff' }} value={inputResult} onChangeText={(e) => {setInputResult(e)}
-                    
-                    }></TextInput>
+                    <TextInput multiline={true} style={resultados ? { display: 'flex', } : { display: "none", color: '#fff' }}
+                        value={inputResult} onChangeText={(e) => { setInputResult(e) }}></TextInput>
             </Card.Content> 
             </Card>
         <IconButton mode='contained-tonal' containerColor="#ff8929" icon='cube-send' size={45}

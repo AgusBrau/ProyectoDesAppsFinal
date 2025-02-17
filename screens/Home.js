@@ -8,10 +8,13 @@ export default function Home({ navigation }) {
 <View style={{flex: 1,
     backgroundColor: '#ff8929',
             justifyContent: "space-around",
-            flexDirection: 'row',
+            flexDirection: 'column',
             borderTopWidth: 15,
-        borderColor:'#ff8929'}}>
-            <Text variant="headlineMedium" style={{fontWeight:"600"}}> Añadir Opcion</Text>
+            borderColor: '#ff8929',
+            alignItems: "center",
+        }}>
+            <Text variant="headlineMedium" style={{fontWeight:"bold"}}> IndecisivApp</Text>
+            <Text variant="headlineMedium" style={{fontWeight:"600"}}> Añadir Opciones</Text>
             <IconButton containerColor="#ff8929" size={80} icon={'plus-circle'} onPress={() => {
                 aumentarContador();
                 navigation.navigate('Opciones', {screen:'Opciones',id:contador})
